@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 const MenuShowcase = () => {
   return (
-    <section id="menu" className="h-screen flex flex-col md:flex-row">
+    <section id="menu" className="h-screen flex flex-col md:flex-row m-0 p-0" style={{ marginTop: 0, marginBottom: 0 }}>
       {/* Content - Full width on mobile, half width on desktop */}
       <div className="w-full md:w-1/2 h-1/2 md:h-full bg-gray-50 flex items-center justify-center px-6 md:px-16 py-8 md:py-20 order-2 md:order-1">
         <div className="max-w-sm text-center md:text-left">

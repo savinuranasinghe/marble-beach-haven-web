@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 const About = () => {
   return (
-    <section id="about" className="h-screen flex flex-col md:flex-row">
+    <section id="about" className="h-screen flex flex-col md:flex-row m-0 p-0">
       {/* Image - Full width on mobile, half width on desktop */}
       <div className="w-full md:w-1/2 h-1/2 md:h-full relative">
         <img 

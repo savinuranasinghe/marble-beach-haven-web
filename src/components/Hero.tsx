@@ -27,8 +27,8 @@ const Hero = () => {
       {/* Quay-style Header with Scroll Effect */}
       <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-black shadow-lg' 
-          : 'bg-white shadow-sm'
+          ? 'bg-black' 
+          : 'bg-white'
       }`}>
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
@@ -176,7 +176,7 @@ const Hero = () => {
       </header>
 
       {/* Quay-style Hero Section */}
-      <section className="relative h-screen w-full overflow-hidden">
+      <section className="relative h-screen w-full overflow-hidden block m-0 p-0" style={{ marginTop: 0, marginBottom: 0 }}>
         {/* Full-width Background Image */}
         <div className="absolute inset-0">
           <img 
