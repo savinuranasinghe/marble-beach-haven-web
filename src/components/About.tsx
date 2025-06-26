@@ -97,7 +97,7 @@ const About = () => {
           }`}>
             <Button 
               onClick={handleReadMore}
-              className="bg-transparent border border-black text-black hover:bg-transparent hover:text-black px-6 md:px-8 py-2 md:py-3 text-xs md:text-sm tracking-wide uppercase font-light rounded-none"
+              className="bg-transparent border border-black text-black hover:bg-transparent hover:text-black px-6 md:px-8 py-2 md:py-3 text-xs md:text-sm tracking-wide uppercase font-bold rounded-none"
             >
               Read More
             </Button>

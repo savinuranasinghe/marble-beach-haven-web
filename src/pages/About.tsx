@@ -77,7 +77,7 @@ const About = () => {
             </div>
             <Button 
               onClick={goBackHome}
-              className={`px-6 py-2 text-sm tracking-wide uppercase font-light rounded-none transition-all duration-300 ${
+              className={`px-6 py-2 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300 ${
                 isScrolled 
                   ? 'bg-transparent border border-white text-white hover:bg-white hover:text-black' 
                   : 'bg-transparent border border-black text-black hover:bg-black hover:text-white'
@@ -127,7 +127,7 @@ const About = () => {
               <div className="mt-10">
                 <Button 
                   onClick={() => scrollToSection("philosophy")}
-                  className="bg-transparent border border-black text-black hover:bg-black hover:text-white px-8 py-3 text-sm tracking-wide uppercase font-light rounded-none transition-all duration-300"
+                  className="bg-transparent border border-black text-black hover:bg-black hover:text-white px-8 py-3 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300"
                 >
                   Continue Reading
                 </Button>
@@ -166,7 +166,7 @@ const About = () => {
               <div className="mt-10">
                 <Button 
                   onClick={() => scrollToSection("heritage")}
-                  className="bg-transparent border border-black text-black hover:bg-black hover:text-white px-8 py-3 text-sm tracking-wide uppercase font-light rounded-none transition-all duration-300"
+                  className="bg-transparent border border-black text-black hover:bg-black hover:text-white px-8 py-3 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300"
                 >
                   Continue Reading
                 </Button>

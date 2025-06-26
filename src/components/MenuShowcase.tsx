@@ -70,7 +70,7 @@ const MenuShowcase = () => {
               : 'opacity-0 translate-y-8'
           }`}>
             <p className="text-gray-700 leading-relaxed mb-6 md:mb-10 text-sm md:text-base">
-              <span>Coastal Menu</span> and a thoughtfully curated <span>Wine Selection</span>.
+              <span className="underline cursor-pointer">Coastal Menu</span> and a thoughtfully curated <span className="underline cursor-pointer">Wine Selection</span>.
             </p>
           </div>
           
@@ -81,7 +81,7 @@ const MenuShowcase = () => {
               : 'opacity-0 translate-y-8'
           }`}>
             <Button 
-              className="bg-transparent border border-black text-black hover:bg-transparent hover:text-black px-6 md:px-8 py-2 md:py-3 text-xs md:text-sm tracking-wide uppercase font-light rounded-none"
+              className="bg-transparent border border-black text-black hover:bg-transparent hover:text-black px-6 md:px-8 py-2 md:py-3 text-xs md:text-sm tracking-wide uppercase font-bold rounded-none"
             >
               Read More
             </Button>

@@ -78,7 +78,7 @@ const Hero = () => {
             {/* Reservation Button - Hidden on Mobile */}
             <Button 
               onClick={() => scrollToSection("reservations")}
-              className={`hidden md:block px-6 py-2 text-sm tracking-wide uppercase font-light rounded-none transition-all duration-300 ${
+              className={`hidden md:block px-6 py-2 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300 ${
                 isScrolled 
                   ? 'bg-black text-white border border-white hover:bg-white hover:text-black' 
                   : 'bg-white text-black border border-black hover:bg-white hover:text-black'
@@ -159,7 +159,7 @@ const Hero = () => {
                     scrollToSection("reservations");
                     setIsMenuOpen(false);
                   }}
-                  className={`w-full py-3 text-sm tracking-wide uppercase font-light rounded-none transition-all duration-300 ${
+                  className={`w-full py-3 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300 ${
                     isScrolled 
                       ? 'bg-white text-black border border-white hover:bg-gray-100 hover:text-black' 
                       : 'bg-black text-white border border-black hover:bg-gray-800 hover:text-white'
