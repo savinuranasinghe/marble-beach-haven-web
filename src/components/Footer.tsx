@@ -112,7 +112,15 @@ const Footer = () => {
                 © 2024 Marble Beach Sri Lanka. All rights reserved.
               </p>
               <p className="text-gray-600 text-xs">
-                Developed by <span className="text-gray-400">Divgaze</span>
+                Developed by{" "}
+                <a 
+                  href="https://www.divgaze.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Divgaze
+                </a>
               </p>
             </div>
           </div>

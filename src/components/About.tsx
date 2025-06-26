@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Custom hook for repeatable scroll animations
 const useScrollAnimation = (threshold = 0.3) => {
@@ -30,11 +31,16 @@ const useScrollAnimation = (threshold = 0.3) => {
 };
 
 const About = () => {
+  const navigate = useNavigate();
   const [containerRef, containerVisible] = useScrollAnimation(0.2);
   const [titleRef, titleVisible] = useScrollAnimation(0.3);
   const [text1Ref, text1Visible] = useScrollAnimation(0.3);
   const [text2Ref, text2Visible] = useScrollAnimation(0.3);
   const [buttonRef, buttonVisible] = useScrollAnimation(0.3);
+
+  const handleReadMore = () => {
+    navigate('/about');
+  };
 
   return (
     <section id="about" className="h-screen flex flex-col md:flex-row mt-8 md:mt-0 p-0">
@@ -79,7 +85,7 @@ const About = () => {
               : 'opacity-0 translate-y-8'
           }`}>
             <p className="text-gray-700 leading-relaxed mb-6 md:mb-10 text-sm md:text-base">
-              <span>Marble Beach team</span> with a focus on excellence, authenticity and coastal hospitality.
+              <span className="underline cursor-pointer">Marble Beach team</span> with a focus on excellence, authenticity and coastal hospitality.
             </p>
           </div>
           
@@ -90,6 +96,7 @@ const About = () => {
               : 'opacity-0 translate-y-8'
           }`}>
             <Button 
+              onClick={handleReadMore}
               className="bg-transparent border border-black text-black hover:bg-transparent hover:text-black px-6 md:px-8 py-2 md:py-3 text-xs md:text-sm tracking-wide uppercase font-light rounded-none"
             >
               Read More
