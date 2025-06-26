@@ -1,14 +1,12 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { CalendarIcon } from "lucide-react";
+import { Calendar as CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -56,167 +54,173 @@ const ReservationForm = () => {
     setEmail("");
     setPhone("");
     setSpecialRequests("");
-    
-    console.log("Reservation submitted:", {
-      date: date?.toISOString(),
-      time,
-      guests,
-      name,
-      email,
-      phone,
-      specialRequests,
-      bookingRef
-    });
   };
 
   return (
-    <section id="reservations" className="py-20 bg-slate-50">
-      <div className="container mx-auto px-4">
+    <section id="reservations" className="py-24 bg-gray-50">
+      <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              Reserve Your Table
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light tracking-wide text-black mb-8">
+              RESERVATIONS
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Experience exceptional dining with breathtaking ocean views. Book your table for an unforgettable culinary journey.
+            <div className="w-24 h-px bg-black mx-auto mb-8"></div>
+            <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
+              Experience contemporary Sri Lankan coastal dining with panoramic ocean views. 
+              Book your table for an unforgettable culinary journey.
             </p>
           </div>
 
-          <Card className="shadow-xl border-blue-100">
-            <CardHeader className="text-center bg-gradient-to-r from-blue-50 to-slate-50">
-              <CardTitle className="text-2xl text-primary">Make a Reservation</CardTitle>
-              <CardDescription className="text-lg">
-                Operating Hours: Daily 12:00 PM - 10:00 PM | Dress Code: Smart Casual
-              </CardDescription>
-            </CardHeader>
-            
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-3 gap-6">
-                  {/* Date Selection */}
-                  <div className="space-y-2">
-                    <Label htmlFor="date" className="text-base font-semibold">Date *</Label>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button
-                          variant="outline"
-                          className={cn(
-                            "w-full justify-start text-left font-normal h-12",
-                            !date && "text-muted-foreground"
-                          )}
-                        >
-                          <CalendarIcon className="mr-2 h-4 w-4" />
-                          {date ? format(date, "PPP") : "Select date"}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={date}
-                          onSelect={setDate}
-                          disabled={(date) => date < new Date()}
-                          initialFocus
-                          className="pointer-events-auto"
-                        />
-                      </PopoverContent>
-                    </Popover>
-                  </div>
-
-                  {/* Time Selection */}
-                  <div className="space-y-2">
-                    <Label htmlFor="time" className="text-base font-semibold">Time *</Label>
-                    <Select value={time} onValueChange={setTime}>
-                      <SelectTrigger className="h-12">
-                        <SelectValue placeholder="Select time" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {timeSlots.map((slot) => (
-                          <SelectItem key={slot} value={slot}>
-                            {slot}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Party Size */}
-                  <div className="space-y-2">
-                    <Label htmlFor="guests" className="text-base font-semibold">Party Size *</Label>
-                    <Select value={guests} onValueChange={setGuests}>
-                      <SelectTrigger className="h-12">
-                        <SelectValue placeholder="Number of guests" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {Array.from({ length: 12 }, (_, i) => i + 1).map((num) => (
-                          <SelectItem key={num} value={num.toString()}>
-                            {num} {num === 1 ? "Guest" : "Guests"}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+          {/* Form */}
+          <div className="bg-white p-12 shadow-sm">
+            <div className="space-y-8">
+              
+              {/* Date, Time, Guests Row */}
+              <div className="grid md:grid-cols-3 gap-8">
+                {/* Date Selection */}
+                <div className="space-y-3">
+                  <Label className="text-sm font-light tracking-wide uppercase text-gray-700">
+                    Date *
+                  </Label>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          "w-full justify-start text-left font-light h-12 rounded-none border-gray-300",
+                          !date && "text-gray-400"
+                        )}
+                      >
+                        <CalendarIcon className="mr-3 h-4 w-4" />
+                        {date ? format(date, "PPP") : "Select date"}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={date}
+                        onSelect={setDate}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  {/* Name */}
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-base font-semibold">Full Name *</Label>
-                    <Input
-                      id="name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Enter your full name"
-                      className="h-12"
-                    />
-                  </div>
-
-                  {/* Phone */}
-                  <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-base font-semibold">Phone Number *</Label>
-                    <Input
-                      id="phone"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="Enter your phone number"
-                      className="h-12"
-                    />
-                  </div>
+                {/* Time Selection */}
+                <div className="space-y-3">
+                  <Label className="text-sm font-light tracking-wide uppercase text-gray-700">
+                    Time *
+                  </Label>
+                  <Select value={time} onValueChange={setTime}>
+                    <SelectTrigger className="h-12 rounded-none border-gray-300 font-light">
+                      <SelectValue placeholder="Select time" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {timeSlots.map((slot) => (
+                        <SelectItem key={slot} value={slot}>
+                          {slot}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
-                {/* Email */}
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-base font-semibold">Email Address *</Label>
+                {/* Guests Selection */}
+                <div className="space-y-3">
+                  <Label className="text-sm font-light tracking-wide uppercase text-gray-700">
+                    Guests *
+                  </Label>
+                  <Select value={guests} onValueChange={setGuests}>
+                    <SelectTrigger className="h-12 rounded-none border-gray-300 font-light">
+                      <SelectValue placeholder="Number of guests" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+                        <SelectItem key={num} value={num.toString()}>
+                          {num} {num === 1 ? "Guest" : "Guests"}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              {/* Name & Phone Row */}
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <Label className="text-sm font-light tracking-wide uppercase text-gray-700">
+                    Full Name *
+                  </Label>
                   <Input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
-                    className="h-12"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Enter your full name"
+                    className="h-12 rounded-none border-gray-300 font-light"
                   />
                 </div>
 
-                {/* Special Requests */}
-                <div className="space-y-2">
-                  <Label htmlFor="requests" className="text-base font-semibold">Special Requests</Label>
-                  <Textarea
-                    id="requests"
-                    value={specialRequests}
-                    onChange={(e) => setSpecialRequests(e.target.value)}
-                    placeholder="Any special dietary requirements, celebrations, or seating preferences?"
-                    className="min-h-[100px]"
+                <div className="space-y-3">
+                  <Label className="text-sm font-light tracking-wide uppercase text-gray-700">
+                    Phone Number *
+                  </Label>
+                  <Input
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="Enter your phone number"
+                    className="h-12 rounded-none border-gray-300 font-light"
                   />
                 </div>
+              </div>
 
+              {/* Email */}
+              <div className="space-y-3">
+                <Label className="text-sm font-light tracking-wide uppercase text-gray-700">
+                  Email Address *
+                </Label>
+                <Input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  className="h-12 rounded-none border-gray-300 font-light"
+                />
+              </div>
+
+              {/* Special Requests */}
+              <div className="space-y-3">
+                <Label className="text-sm font-light tracking-wide uppercase text-gray-700">
+                  Special Requests
+                </Label>
+                <Textarea
+                  value={specialRequests}
+                  onChange={(e) => setSpecialRequests(e.target.value)}
+                  placeholder="Any special dietary requirements, celebrations, or seating preferences?"
+                  className="min-h-[100px] rounded-none border-gray-300 font-light resize-none"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="text-center pt-4">
                 <Button 
-                  type="submit" 
-                  className="w-full h-14 text-lg font-semibold bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-300"
+                  onClick={handleSubmit}
+                  className="bg-black text-white hover:bg-gray-800 px-12 py-4 text-sm tracking-wide uppercase font-light rounded-none"
                 >
-                  Confirm Reservation
+                  Make Reservation
                 </Button>
-              </form>
-            </CardContent>
-          </Card>
+              </div>
+            </div>
+
+            {/* Operating Hours */}
+            <div className="text-center mt-12 pt-8 border-t border-gray-200">
+              <p className="text-gray-600 text-sm font-light tracking-wide">
+                Operating Hours: Daily 12:00 PM - 10:00 PM
+              </p>
+              <p className="text-gray-600 text-sm font-light tracking-wide mt-1">
+                Dress Code: Smart Casual
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

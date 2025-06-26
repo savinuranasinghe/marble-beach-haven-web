@@ -1,10 +1,8 @@
-
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import MenuShowcase from "@/components/MenuShowcase";
-import ReservationForm from "@/components/ReservationForm";
 import Gallery from "@/components/Gallery";
-import Reviews from "@/components/Reviews";
+import ReservationForm from "@/components/ReservationForm";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -16,9 +14,8 @@ const Index = () => {
       <Hero />
       <About />
       <MenuShowcase />
-      <ReservationForm />
       <Gallery />
-      <Reviews />
+      <ReservationForm />
       <Contact />
       <Footer />
     </div>
