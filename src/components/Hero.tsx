@@ -75,10 +75,10 @@ const Hero = () => {
               </button>
             </nav>
 
-            {/* Reservation Button */}
+            {/* Reservation Button - Hidden on Mobile */}
             <Button 
               onClick={() => scrollToSection("reservations")}
-              className={`px-6 py-2 text-sm tracking-wide uppercase font-light rounded-none transition-all duration-300 ${
+              className={`hidden md:block px-6 py-2 text-sm tracking-wide uppercase font-light rounded-none transition-all duration-300 ${
                 isScrolled 
                   ? 'bg-black text-white border border-white hover:bg-white hover:text-black' 
                   : 'bg-white text-black border border-black hover:bg-white hover:text-black'
@@ -108,7 +108,10 @@ const Hero = () => {
           }`}>
             <div className="container mx-auto px-6 py-4 space-y-4">
               <button 
-                onClick={() => scrollToSection("about")}
+                onClick={() => {
+                  scrollToSection("about");
+                  setIsMenuOpen(false);
+                }}
                 className={`block hover:opacity-70 transition-all duration-300 uppercase tracking-wide ${
                   isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
                 }`}
@@ -116,7 +119,10 @@ const Hero = () => {
                 About
               </button>
               <button 
-                onClick={() => scrollToSection("menu")}
+                onClick={() => {
+                  scrollToSection("menu");
+                  setIsMenuOpen(false);
+                }}
                 className={`block hover:opacity-70 transition-all duration-300 uppercase tracking-wide ${
                   isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
                 }`}
@@ -124,7 +130,10 @@ const Hero = () => {
                 Menu
               </button>
               <button 
-                onClick={() => scrollToSection("gallery")}
+                onClick={() => {
+                  scrollToSection("gallery");
+                  setIsMenuOpen(false);
+                }}
                 className={`block hover:opacity-70 transition-all duration-300 uppercase tracking-wide ${
                   isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
                 }`}
@@ -132,13 +141,35 @@ const Hero = () => {
                 Gallery
               </button>
               <button 
-                onClick={() => scrollToSection("contact")}
+                onClick={() => {
+                  scrollToSection("contact");
+                  setIsMenuOpen(false);
+                }}
                 className={`block hover:opacity-70 transition-all duration-300 uppercase tracking-wide ${
                   isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
                 }`}
               >
                 Contact
               </button>
+              
+              {/* Mobile Book Now Button */}
+              <div className={`pt-4 border-t ${
+                isScrolled ? 'border-gray-700' : 'border-gray-300'
+              }`}>
+                <Button 
+                  onClick={() => {
+                    scrollToSection("reservations");
+                    setIsMenuOpen(false);
+                  }}
+                  className={`w-full py-3 text-sm tracking-wide uppercase font-light rounded-none transition-all duration-300 ${
+                    isScrolled 
+                      ? 'bg-white text-black border border-white hover:bg-gray-100 hover:text-black' 
+                      : 'bg-black text-white border border-black hover:bg-gray-800 hover:text-white'
+                  }`}
+                >
+                  Book Now
+                </Button>
+              </div>
             </div>
           </div>
         )}
