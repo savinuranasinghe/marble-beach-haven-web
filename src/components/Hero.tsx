@@ -53,7 +53,7 @@ const Hero = () => {
             {/* Reservation Button */}
             <Button 
               onClick={() => scrollToSection("reservations")}
-              className="bg-black text-white hover:bg-gray-800 px-6 py-2 text-sm tracking-wide uppercase font-light"
+              className="bg-black text-white hover:bg-gray-800 px-6 py-2 text-sm tracking-wide uppercase font-light rounded-none"
             >
               Book Now
             </Button>
