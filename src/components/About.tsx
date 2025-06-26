@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 const About = () => {
   return (
-    <section id="about" className="h-screen flex flex-col md:flex-row m-0 p-0">
+    <section id="about" className="h-screen flex flex-col md:flex-row mt-8 md:mt-0 p-0">
       {/* Image - Full width on mobile, half width on desktop */}
       <div className="w-full md:w-1/2 h-1/2 md:h-full relative">
         <img 
@@ -24,7 +24,7 @@ const About = () => {
           </p>
           
           <p className="text-gray-700 leading-relaxed mb-6 md:mb-10 text-sm md:text-base">
-            <span className="underline cursor-pointer">Marble Beach team</span> with a focus on excellence, authenticity and coastal hospitality.
+            <span>Marble Beach team</span> with a focus on excellence, authenticity and coastal hospitality.
           </p>
           
           <Button 

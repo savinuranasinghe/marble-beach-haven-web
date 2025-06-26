@@ -99,7 +99,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Mobile Menu - FIXED: Removed border-t that was causing white line */}
+        {/* Mobile Menu - COMPLETELY FIXED: All border-t classes removed */}
         {isMenuOpen && (
           <div className={`md:hidden transition-colors duration-300 ${
             isScrolled 
@@ -152,7 +152,7 @@ const Hero = () => {
                 Contact
               </button>
               
-              {/* Mobile Book Now Button - FIXED: Removed border-t that was causing second white line */}
+              {/* Mobile Book Now Button - COMPLETELY FIXED: border-t removed */}
               <div className="pt-4">
                 <Button 
                   onClick={() => {
