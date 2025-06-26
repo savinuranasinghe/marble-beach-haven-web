@@ -1,9 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -13,38 +24,52 @@ const Hero = () => {
 
   return (
     <>
-      {/* Quay-style Header */}
-      <header className="fixed top-0 w-full bg-white z-50 shadow-sm">
+      {/* Quay-style Header with Scroll Effect */}
+      <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-black shadow-lg' 
+          : 'bg-white shadow-sm'
+      }`}>
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <div className="text-2xl font-light tracking-[0.2em] text-black">
+            <div className={`text-2xl font-light tracking-[0.2em] transition-colors duration-300 ${
+              isScrolled ? 'text-white' : 'text-black'
+            }`}>
               MARBLE BEACH
             </div>
             
-            {/* Desktop Navigation - Hidden initially, appears on scroll */}
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8 text-sm tracking-wide">
               <button 
                 onClick={() => scrollToSection("about")}
-                className="text-gray-700 hover:text-black transition-colors uppercase"
+                className={`hover:opacity-70 transition-all duration-300 uppercase ${
+                  isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                }`}
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection("menu")}
-                className="text-gray-700 hover:text-black transition-colors uppercase"
+                className={`hover:opacity-70 transition-all duration-300 uppercase ${
+                  isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                }`}
               >
                 Menu
               </button>
               <button 
-                onClick={() => scrollToSection("experience")}
-                className="text-gray-700 hover:text-black transition-colors uppercase"
+                onClick={() => scrollToSection("gallery")}
+                className={`hover:opacity-70 transition-all duration-300 uppercase ${
+                  isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                }`}
               >
-                Experience
+                Gallery
               </button>
               <button 
                 onClick={() => scrollToSection("contact")}
-                className="text-gray-700 hover:text-black transition-colors uppercase"
+                className={`hover:opacity-70 transition-all duration-300 uppercase ${
+                  isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                }`}
               >
                 Contact
               </button>
@@ -53,14 +78,20 @@ const Hero = () => {
             {/* Reservation Button */}
             <Button 
               onClick={() => scrollToSection("reservations")}
-              className="bg-black text-white hover:bg-gray-800 px-6 py-2 text-sm tracking-wide uppercase font-light rounded-none"
+              className={`px-6 py-2 text-sm tracking-wide uppercase font-light rounded-none transition-all duration-300 ${
+                isScrolled 
+                  ? 'bg-black text-white border border-white hover:bg-white hover:text-black' 
+                  : 'bg-white text-black border border-black hover:bg-white hover:text-black'
+              }`}
             >
               Book Now
             </Button>
 
             {/* Mobile Menu Button */}
             <button 
-              className="md:hidden"
+              className={`md:hidden transition-colors duration-300 ${
+                isScrolled ? 'text-white' : 'text-black'
+              }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -70,29 +101,41 @@ const Hero = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t">
+          <div className={`md:hidden border-t transition-colors duration-300 ${
+            isScrolled 
+              ? 'bg-black border-gray-800' 
+              : 'bg-white border-gray-200'
+          }`}>
             <div className="container mx-auto px-6 py-4 space-y-4">
               <button 
                 onClick={() => scrollToSection("about")}
-                className="block text-gray-700 hover:text-black transition-colors uppercase tracking-wide"
+                className={`block hover:opacity-70 transition-all duration-300 uppercase tracking-wide ${
+                  isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                }`}
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection("menu")}
-                className="block text-gray-700 hover:text-black transition-colors uppercase tracking-wide"
+                className={`block hover:opacity-70 transition-all duration-300 uppercase tracking-wide ${
+                  isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                }`}
               >
                 Menu
               </button>
               <button 
-                onClick={() => scrollToSection("experience")}
-                className="block text-gray-700 hover:text-black transition-colors uppercase tracking-wide"
+                onClick={() => scrollToSection("gallery")}
+                className={`block hover:opacity-70 transition-all duration-300 uppercase tracking-wide ${
+                  isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                }`}
               >
-                Experience
+                Gallery
               </button>
               <button 
                 onClick={() => scrollToSection("contact")}
-                className="block text-gray-700 hover:text-black transition-colors uppercase tracking-wide"
+                className={`block hover:opacity-70 transition-all duration-300 uppercase tracking-wide ${
+                  isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                }`}
               >
                 Contact
               </button>
