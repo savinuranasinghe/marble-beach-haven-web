@@ -70,7 +70,7 @@ const MenuShowcase = () => {
               : 'opacity-0 translate-y-8'
           }`}>
             <p className="text-gray-700 leading-relaxed mb-6 md:mb-10 text-sm md:text-base">
-              <span className="underline cursor-pointer">Coastal Menu</span> and a thoughtfully curated <span className="underline cursor-pointer">Wine Selection</span>.
+              <span>Coastal Menu</span> and a thoughtfully curated <span>Wine Selection</span>.
             </p>
           </div>
           

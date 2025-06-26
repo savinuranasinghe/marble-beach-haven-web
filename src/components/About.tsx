@@ -79,7 +79,7 @@ const About = () => {
               : 'opacity-0 translate-y-8'
           }`}>
             <p className="text-gray-700 leading-relaxed mb-6 md:mb-10 text-sm md:text-base">
-              <span className="underline cursor-pointer">Marble Beach team</span> with a focus on excellence, authenticity and coastal hospitality.
+              <span>Marble Beach team</span> with a focus on excellence, authenticity and coastal hospitality.
             </p>
           </div>
           
