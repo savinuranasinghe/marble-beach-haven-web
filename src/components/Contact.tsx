@@ -26,8 +26,9 @@ const Contact = () => {
               <div className="space-y-2 text-gray-600 leading-relaxed">
                 <p>Marble Beach Resort</p>
                 <p>Galle Road</p>
-                <p>Southern Province</p>
-                <p>Sri Lanka</p>
+                <p>Unawatuna, Galle</p>
+                <p>Southern Province, Sri Lanka</p>
+                <p className="text-xs text-gray-500 mt-2">6.010039, 80.249366</p>
               </div>
             </div>
 
@@ -37,7 +38,7 @@ const Contact = () => {
                 Phone
               </h3>
               <div className="space-y-2 text-gray-600">
-                <p>+94 11 234 5678</p>
+                <p>+94 91 234 5678</p>
                 <p className="text-sm text-gray-500">Reservations</p>
               </div>
             </div>
@@ -69,19 +70,19 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Map Section */}
+          {/* Map Section - Interactive Google Maps with Exact Location Marker */}
           <div className="mt-20">
-            <div className="bg-gray-100 h-96 flex items-center justify-center">
-              <div className="text-center text-gray-500">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <p className="text-sm font-light">Interactive Map</p>
-                <p className="text-xs text-gray-400 mt-1">Galle Road, Southern Province, Sri Lanka</p>
-              </div>
+            <div className="bg-gray-100 h-96 relative overflow-hidden">
+              <iframe
+                src="https://maps.google.com/maps?q=6.010039,80.249366&hl=en&z=15&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Marble Beach Sri Lanka - Exact Restaurant Location"
+              ></iframe>
             </div>
           </div>
 
@@ -92,12 +93,12 @@ const Contact = () => {
             </h3>
             <div className="max-w-3xl mx-auto">
               <p className="text-gray-600 leading-relaxed mb-4">
-                Marble Beach is located along the scenic Galle Road on Sri Lanka's southern coast. 
+                Marble Beach is located in Unawatuna along the scenic Galle Road on Sri Lanka's southern coast. 
                 We're easily accessible by car, taxi, or tuk-tuk from major cities.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                From Colombo: 2-hour drive south along the coastal highway. 
-                From Galle: 30-minute drive north along Galle Road.
+                From Colombo: Take the Southern Expressway to Galle, then follow Galle Road towards Unawatuna. 
+                From Galle Fort: 6km southeast along Galle Road to our beachfront location.
               </p>
             </div>
           </div>
