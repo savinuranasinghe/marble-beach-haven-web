@@ -99,12 +99,12 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - FIXED: Removed border-t that was causing white line */}
         {isMenuOpen && (
-          <div className={`md:hidden border-t transition-colors duration-300 ${
+          <div className={`md:hidden transition-colors duration-300 ${
             isScrolled 
-              ? 'bg-black border-gray-800' 
-              : 'bg-white border-gray-200'
+              ? 'bg-black' 
+              : 'bg-white'
           }`}>
             <div className="container mx-auto px-6 py-4 space-y-4">
               <button 
@@ -152,10 +152,8 @@ const Hero = () => {
                 Contact
               </button>
               
-              {/* Mobile Book Now Button */}
-              <div className={`pt-4 border-t ${
-                isScrolled ? 'border-gray-700' : 'border-gray-300'
-              }`}>
+              {/* Mobile Book Now Button - FIXED: Removed border-t that was causing second white line */}
+              <div className="pt-4">
                 <Button 
                   onClick={() => {
                     scrollToSection("reservations");
