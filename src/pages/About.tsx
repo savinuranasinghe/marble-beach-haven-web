@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react"; // Add this import
 
 // Custom hook for scroll animations
 const useScrollAnimation = (threshold = 0.3) => {
@@ -62,7 +63,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-white">
       
-      {/* Header - Minimal like Quay with Scroll Effect */}
+      {/* Header - Mobile Back Arrow + Desktop Button */}
       <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-black' 
@@ -70,14 +71,28 @@ const About = () => {
       } border-b ${isScrolled ? 'border-gray-800' : 'border-gray-100'}`}>
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className={`text-2xl font-light tracking-[0.2em] transition-colors duration-300 ${
+            
+            {/* Mobile Back Arrow - Only visible on mobile */}
+            <button 
+              onClick={goBackHome}
+              className={`md:hidden flex items-center justify-center w-10 h-10 transition-colors duration-300 ${
+                isScrolled ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'
+              }`}
+            >
+              <ArrowLeft size={20} />
+            </button>
+
+            {/* Logo - Centered on mobile, left on desktop */}
+            <div className={`text-2xl font-light tracking-[0.2em] transition-colors duration-300 flex-1 md:flex-none text-center md:text-left ${
               isScrolled ? 'text-white' : 'text-black'
             }`}>
               MARBLE BEACH
             </div>
+            
+            {/* Desktop Back Button - Only visible on desktop */}
             <Button 
               onClick={goBackHome}
-              className={`px-6 py-2 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300 ${
+              className={`hidden md:block px-6 py-2 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300 ${
                 isScrolled 
                   ? 'bg-transparent border border-white text-white hover:bg-white hover:text-black' 
                   : 'bg-transparent border border-black text-black hover:bg-black hover:text-white'
@@ -85,12 +100,15 @@ const About = () => {
             >
               Back to Home
             </Button>
+
+            {/* Empty div for mobile layout balance */}
+            <div className="md:hidden w-10"></div>
           </div>
         </div>
       </header>
 
       {/* Section 1: Chef Kumar's Story */}
-      <section className="min-h-screen flex flex-col md:flex-row md:h-screen mt-20">
+      <section className="min-h-screen flex flex-col md:flex-row md:h-screen pt-16 md:pt-20">
         {/* Image */}
         <div className="w-full md:w-1/2 h-80 md:h-full relative">
           <img 
