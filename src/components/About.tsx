@@ -34,8 +34,7 @@ const About = () => {
   const navigate = useNavigate();
   const [containerRef, containerVisible] = useScrollAnimation(0.2);
   const [titleRef, titleVisible] = useScrollAnimation(0.3);
-  const [text1Ref, text1Visible] = useScrollAnimation(0.3);
-  const [text2Ref, text2Visible] = useScrollAnimation(0.3);
+  const [textRef, textVisible] = useScrollAnimation(0.3);
   const [buttonRef, buttonVisible] = useScrollAnimation(0.3);
 
   const handleReadMore = () => {
@@ -67,30 +66,19 @@ const About = () => {
             </h2>
           </div>
           
-          {/* Animated First Paragraph */}
-          <div ref={text1Ref} className={`transition-all duration-1000 ease-out delay-200 ${
-            text1Visible 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-8'
-          }`}>
-            <p className="text-gray-700 leading-relaxed mb-3 md:mb-6 text-sm md:text-base">
-              Kumar's deep appreciation of Sri Lankan coastal traditions and his innovative approach to contemporary cuisine are the driving forces in his cooking. Kumar leads the
-            </p>
-          </div>
-          
-          {/* Animated Second Paragraph */}
-          <div ref={text2Ref} className={`transition-all duration-1000 ease-out delay-400 ${
-            text2Visible 
+          {/* Animated Single Paragraph */}
+          <div ref={textRef} className={`transition-all duration-1000 ease-out delay-200 ${
+            textVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}>
             <p className="text-gray-700 leading-relaxed mb-4 md:mb-10 text-sm md:text-base">
-              <span className="underline cursor-pointer">Marble Beach team</span> with a focus on excellence, authenticity and coastal hospitality.
+              Kumar's deep appreciation of Sri Lankan coastal traditions and his innovative approach to contemporary cuisine are the driving forces in his cooking. Kumar leads the Marble Beach team with a focus on excellence, authenticity and coastal hospitality.
             </p>
           </div>
           
           {/* Animated Button */}
-          <div ref={buttonRef} className={`transition-all duration-1000 ease-out delay-600 ${
+          <div ref={buttonRef} className={`transition-all duration-1000 ease-out delay-400 ${
             buttonVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
