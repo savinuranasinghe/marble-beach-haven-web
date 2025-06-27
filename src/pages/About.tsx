@@ -92,11 +92,11 @@ const About = () => {
       {/* Section 1: Chef Kumar's Story */}
       <section className="min-h-screen flex flex-col md:flex-row md:h-screen mt-20">
         {/* Image */}
-        <div className="w-full md:w-1/2 h-64 md:h-full relative">
+        <div className="w-full md:w-1/2 h-80 md:h-full relative">
           <img 
             src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1000&q=80"
             alt="Chef Kumar Portrait"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
         </div>
         
@@ -176,11 +176,11 @@ const About = () => {
         </div>
         
         {/* Image */}
-        <div className="w-full md:w-1/2 h-64 md:h-full relative order-1 md:order-2">
+        <div className="w-full md:w-1/2 h-80 md:h-full relative order-1 md:order-2">
           <img 
             src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1000&q=80"
             alt="Chef Kumar preparing spices"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
         </div>
       </section>
@@ -188,11 +188,11 @@ const About = () => {
       {/* Section 3: Marble Beach Heritage */}
       <section id="heritage" className="min-h-screen flex flex-col md:flex-row md:h-screen">
         {/* Image */}
-        <div className="w-full md:w-1/2 h-64 md:h-full relative">
+        <div className="w-full md:w-1/2 h-80 md:h-full relative">
           <img 
             src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=1000&q=80"
             alt="Marble Beach Heritage"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
         </div>
         
