@@ -90,9 +90,9 @@ const About = () => {
       </header>
 
       {/* Section 1: Chef Kumar's Story */}
-      <section className="min-h-screen flex flex-col md:flex-row mt-20">
+      <section className="min-h-screen flex flex-col md:flex-row md:h-screen mt-20">
         {/* Image */}
-        <div className="w-full md:w-1/2 h-64 md:h-screen relative">
+        <div className="w-full md:w-1/2 h-64 md:h-full relative">
           <img 
             src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1000&q=80"
             alt="Chef Kumar Portrait"
@@ -101,16 +101,16 @@ const About = () => {
         </div>
         
         {/* Content */}
-        <div className="w-full md:w-1/2 bg-gray-50 flex items-center justify-center px-8 md:px-16 py-12 md:py-20">
-          <div ref={section1Ref} className="max-w-lg">
+        <div className="w-full md:w-1/2 flex-1 md:h-full bg-gray-50 flex items-center justify-center px-6 md:px-16 py-8 md:py-20">
+          <div ref={section1Ref} className="max-w-lg w-full">
             <div className={`transition-all duration-1000 ease-out ${
               section1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <h1 className="text-4xl md:text-6xl font-light tracking-wide text-black mb-8 md:mb-12">
+              <h1 className="text-3xl md:text-6xl font-light tracking-wide text-black mb-4 md:mb-12">
                 CHEF KUMAR
               </h1>
               
-              <div className="space-y-6 text-gray-700 leading-relaxed">
+              <div className="space-y-4 md:space-y-6 text-gray-700 leading-relaxed text-sm md:text-base">
                 <p>
                   Chef Kumar is the culinary visionary behind Marble Beach, bringing together authentic Sri Lankan coastal traditions with contemporary fine dining techniques. Born and raised in the fishing villages of Sri Lanka's southern coast, Kumar's deep connection to the ocean and its bounty shapes every dish he creates.
                 </p>
@@ -120,14 +120,14 @@ const About = () => {
                 </p>
                 
                 <p>
-                  Today, Kumar is recognized as one of Sri Lanka's most innovative chefs, having received the National Culinary Excellence Award three consecutive years. His commitment to sustainable fishing practices and partnerships with local communities has made Marble Beach a beacon of responsible coastal dining.
+                  Today, Kumar is recognized as one of Sri Lanka's most innovative chefs, having received the National Culinary Excellence Award. His commitment to sustainable fishing practices has made Marble Beach a beacon of responsible coastal dining.
                 </p>
               </div>
               
-              <div className="mt-10">
+              <div className="mt-6 md:mt-10">
                 <Button 
                   onClick={() => scrollToSection("philosophy")}
-                  className="bg-transparent border border-black text-black hover:bg-black hover:text-white px-8 py-3 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300"
+                  className="bg-transparent border border-black text-black hover:bg-black hover:text-white px-6 md:px-8 py-2 md:py-3 text-xs md:text-sm tracking-wide uppercase font-light rounded-none transition-all duration-300"
                 >
                   Continue Reading
                 </Button>
@@ -138,18 +138,18 @@ const About = () => {
       </section>
 
       {/* Section 2: Culinary Philosophy */}
-      <section id="philosophy" className="min-h-screen flex flex-col md:flex-row">
+      <section id="philosophy" className="min-h-screen flex flex-col md:flex-row md:h-screen">
         {/* Content */}
-        <div className="w-full md:w-1/2 bg-white flex items-center justify-center px-8 md:px-16 py-12 md:py-20 order-2 md:order-1">
-          <div ref={section2Ref} className="max-w-lg">
+        <div className="w-full md:w-1/2 flex-1 md:h-full bg-white flex items-center justify-center px-6 md:px-16 py-8 md:py-20 order-2 md:order-1">
+          <div ref={section2Ref} className="max-w-lg w-full">
             <div className={`transition-all duration-1000 ease-out ${
               section2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <h2 className="text-4xl md:text-6xl font-light tracking-wide text-black mb-8 md:mb-12">
+              <h2 className="text-3xl md:text-6xl font-light tracking-wide text-black mb-4 md:mb-12">
                 CULINARY PHILOSOPHY
               </h2>
               
-              <div className="space-y-6 text-gray-700 leading-relaxed">
+              <div className="space-y-4 md:space-y-6 text-gray-700 leading-relaxed text-sm md:text-base">
                 <p>
                   Kumar's culinary philosophy centers on the belief that great cuisine emerges from the harmony between tradition and innovation. Drawing inspiration from the rhythms of the ocean and the complexity of Sri Lankan spice culture, each dish tells a story of coastal heritage reimagined for the contemporary palate.
                 </p>
@@ -159,14 +159,14 @@ const About = () => {
                 </p>
                 
                 <p>
-                  The seasonal menu philosophy follows Sri Lanka's monsoon patterns, celebrating the unique ingredients each brings. From the robust flavors of Maha season to the delicate herbs of Yala, Kumar's cooking connects diners to the natural cycles that have sustained coastal communities for generations.
+                  The seasonal menu philosophy follows Sri Lanka's monsoon patterns, celebrating the unique ingredients each brings. Kumar's cooking connects diners to the natural cycles that have sustained coastal communities for generations.
                 </p>
               </div>
               
-              <div className="mt-10">
+              <div className="mt-6 md:mt-10">
                 <Button 
                   onClick={() => scrollToSection("heritage")}
-                  className="bg-transparent border border-black text-black hover:bg-black hover:text-white px-8 py-3 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300"
+                  className="bg-transparent border border-black text-black hover:bg-black hover:text-white px-6 md:px-8 py-2 md:py-3 text-xs md:text-sm tracking-wide uppercase font-light rounded-none transition-all duration-300"
                 >
                   Continue Reading
                 </Button>
@@ -176,7 +176,7 @@ const About = () => {
         </div>
         
         {/* Image */}
-        <div className="w-full md:w-1/2 h-64 md:h-screen relative order-1 md:order-2">
+        <div className="w-full md:w-1/2 h-64 md:h-full relative order-1 md:order-2">
           <img 
             src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1000&q=80"
             alt="Chef Kumar preparing spices"
@@ -186,9 +186,9 @@ const About = () => {
       </section>
 
       {/* Section 3: Marble Beach Heritage */}
-      <section id="heritage" className="min-h-screen flex flex-col md:flex-row">
+      <section id="heritage" className="min-h-screen flex flex-col md:flex-row md:h-screen">
         {/* Image */}
-        <div className="w-full md:w-1/2 h-64 md:h-screen relative">
+        <div className="w-full md:w-1/2 h-64 md:h-full relative">
           <img 
             src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=1000&q=80"
             alt="Marble Beach Heritage"
@@ -197,16 +197,16 @@ const About = () => {
         </div>
         
         {/* Content */}
-        <div className="w-full md:w-1/2 bg-gray-50 flex items-center justify-center px-8 md:px-16 py-12 md:py-20">
-          <div ref={section3Ref} className="max-w-lg">
+        <div className="w-full md:w-1/2 flex-1 md:h-full bg-gray-50 flex items-center justify-center px-6 md:px-16 py-8 md:py-20">
+          <div ref={section3Ref} className="max-w-lg w-full">
             <div className={`transition-all duration-1000 ease-out ${
               section3Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <h2 className="text-4xl md:text-6xl font-light tracking-wide text-black mb-8 md:mb-12">
+              <h2 className="text-3xl md:text-6xl font-light tracking-wide text-black mb-4 md:mb-12">
                 MARBLE BEACH HERITAGE
               </h2>
               
-              <div className="space-y-6 text-gray-700 leading-relaxed">
+              <div className="space-y-4 md:space-y-6 text-gray-700 leading-relaxed text-sm md:text-base">
                 <p>
                   Marble Beach was born from a vision to create Sri Lanka's premier coastal dining destination, where the island's rich culinary heritage meets world-class hospitality. Choosing Unawatuna for its pristine beaches and vibrant fishing community, Kumar sought to build more than a restaurant—he envisioned a cultural bridge connecting travelers to authentic Sri Lankan coastal life.
                 </p>
@@ -216,7 +216,7 @@ const About = () => {
                 </p>
                 
                 <p>
-                  Marble Beach serves as a platform for showcasing Sri Lankan coastal cuisine to the world while supporting local communities through fair trade partnerships with fishermen, farmers, and artisans. Our commitment to environmental stewardship includes ocean conservation initiatives and zero-waste kitchen practices.
+                  Marble Beach showcases Sri Lankan coastal cuisine to the world while supporting local communities through partnerships with fishermen, farmers, and artisans. Our commitment includes ocean conservation initiatives and sustainable practices.
                 </p>
               </div>
             </div>
