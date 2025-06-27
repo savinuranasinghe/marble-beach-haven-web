@@ -39,7 +39,7 @@ const About = () => {
   const [buttonRef, buttonVisible] = useScrollAnimation(0.3);
 
   const handleReadMore = () => {
-    navigate('/about');
+    navigate('/about', { state: { scrollTo: 'chef-kumar' } });
   };
 
   return (

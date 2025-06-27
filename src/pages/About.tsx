@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowLeft } from "lucide-react"; // Add this import
 
 // Custom hook for scroll animations
@@ -32,10 +32,26 @@ const useScrollAnimation = (threshold = 0.3) => {
 
 const About = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [section1Ref, section1Visible] = useScrollAnimation(0.3);
   const [section2Ref, section2Visible] = useScrollAnimation(0.3);
   const [section3Ref, section3Visible] = useScrollAnimation(0.3);
+
+  // Handle navigation state for scrolling to sections
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      // Add a small delay to ensure the page has rendered
+      const timer = setTimeout(() => {
+        const element = document.getElementById(location.state.scrollTo);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [location.state]);
 
   // Scroll detection for navbar
   useEffect(() => {
@@ -108,7 +124,7 @@ const About = () => {
       </header>
 
       {/* Section 1: Chef Kumar's Story */}
-      <section className="min-h-screen flex flex-col md:flex-row md:h-screen pt-16 md:pt-20">
+      <section id="chef-kumar" className="min-h-screen flex flex-col md:flex-row md:h-screen pt-16 md:pt-20">
         {/* Image */}
         <div className="w-full md:w-1/2 h-80 md:h-full relative">
           <img 
