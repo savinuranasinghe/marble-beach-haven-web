@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Wifi, Car, Waves, Coffee, Utensils, Dumbbell, Wind } from "lucide-react";
+import { ArrowLeft, Wifi, Car, Waves, Coffee, Utensils, Dumbbell, Wind, Bed, Eye, Bath, Wine, Snowflake } from "lucide-react";
 
 const Rooms = () => {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ const Rooms = () => {
       price: "LKR 45,000",
       description: "Luxury suite with panoramic ocean views, private balcony, and direct beach access. Perfect for romantic getaways.",
       amenities: ["King Bed", "Ocean Balcony", "Marble Bathroom", "Minibar", "WiFi", "AC"],
-      image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
       featured: true
     },
     {
@@ -85,39 +85,60 @@ const Rooms = () => {
     { icon: Car, name: "Airport Transfer", description: "Luxury transport available" }
   ];
 
+  const getAmenityIcon = (amenity: string) => {
+    const iconMap: { [key: string]: any } = {
+      "King Bed": Bed,
+      "King/Twin Beds": Bed,
+      "Queen Bed": Bed,
+      "Ocean Balcony": Eye,
+      "Garden View": Eye,
+      "Ocean View": Eye,
+      "Beach Access": Waves,
+      "Marble Bathroom": Bath,
+      "Outdoor Shower": Bath,
+      "Modern Design": Bath,
+      "Traditional Design": Bath,
+      "Minibar": Wine,
+      "WiFi": Wifi,
+      "AC": Snowflake
+    };
+    
+    return iconMap[amenity] || Coffee; // Default icon if not found
+  };
+
   const packages = [
     {
       name: "Dine & Stay Package",
       description: "2 nights accommodation with daily breakfast and one dinner at Marble Beach Restaurant",
       savings: "Save 20%",
-      color: "bg-blue-50 border-blue-200"
+      color: "bg-gray-100 border-gray-300"
     },
     {
       name: "Romantic Getaway",
       description: "3 nights in Ocean View Suite with couples spa treatment and private beach dinner",
       savings: "Save 25%",
-      color: "bg-pink-50 border-pink-200"
+      color: "bg-stone-100 border-stone-300"
     },
     {
       name: "Extended Stay",
       description: "7+ nights accommodation with daily breakfast and weekly spa treatment",
       savings: "Save 30%",
-      color: "bg-green-50 border-green-200"
+      color: "bg-slate-100 border-slate-300"
     }
   ];
 
   const RoomCard = ({ room }: { room: any }) => (
-    <div className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 ${room.featured ? 'ring-2 ring-yellow-400' : ''}`}>
+    <div className={`bg-white shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 ${room.featured ? 'ring-2 ring-yellow-400' : ''}`}>
       {room.featured && (
         <div className="bg-yellow-400 text-black text-center py-2 text-sm font-bold">
           MOST POPULAR
         </div>
       )}
-      <div className="relative">
+      <div className="relative h-64">
         <img 
           src={room.image}
           alt={room.name}
-          className="w-full h-64 object-cover"
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="p-6">
@@ -138,11 +159,15 @@ const Rooms = () => {
         <p className="text-gray-700 leading-relaxed mb-4">{room.description}</p>
         
         <div className="grid grid-cols-2 gap-2 mb-6">
-          {room.amenities.map((amenity: string, index: number) => (
-            <div key={index} className="text-sm text-gray-600">
-              • {amenity}
-            </div>
-          ))}
+          {room.amenities.map((amenity: string, index: number) => {
+            const IconComponent = getAmenityIcon(amenity);
+            return (
+              <div key={index} className="flex items-center gap-2 text-sm text-gray-600">
+                <IconComponent className="w-4 h-4 text-black" />
+                <span>{amenity}</span>
+              </div>
+            );
+          })}
         </div>
         
         <Button className="w-full bg-black text-white border border-black hover:bg-transparent hover:text-black py-3 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300">
@@ -227,7 +252,7 @@ const Rooms = () => {
       {/* Quick Booking Widget */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+          <div className="max-w-4xl mx-auto bg-white p-8 shadow-lg">
             <h2 className="text-2xl font-light tracking-wide text-center mb-8">Check Availability</h2>
             <div className="grid md:grid-cols-4 gap-6">
               <div>
@@ -335,19 +360,21 @@ const Rooms = () => {
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {packages.map((pkg, index) => (
-              <div key={index} className={`p-8 border-2 rounded-lg ${pkg.color}`}>
-                <div className="text-center">
+              <div key={index} className={`p-8 border-2 ${pkg.color} flex flex-col h-full`}>
+                <div className="text-center flex-grow">
                   <span className="inline-block bg-black text-white px-3 py-1 text-xs font-bold rounded-full mb-4">
                     {pkg.savings}
                   </span>
                   <h3 className="text-2xl font-light tracking-wide text-black mb-4">
                     {pkg.name}
                   </h3>
-                  <p className="text-gray-700 mb-6">
+                  <p className="text-gray-700 mb-6 flex-grow">
                     {pkg.description}
                   </p>
+                </div>
+                <div className="text-center">
                   <Button className="bg-black text-white hover:bg-transparent hover:text-black border border-black px-6 py-2 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300">
                     Learn More
                   </Button>
