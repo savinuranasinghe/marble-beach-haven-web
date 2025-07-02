@@ -316,7 +316,7 @@ const Rooms = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {roomTypes.map((room, index) => (
               <RoomCard key={index} room={room} />
             ))}
