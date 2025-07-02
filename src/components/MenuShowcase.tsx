@@ -75,6 +75,7 @@ const MenuShowcase = () => {
               : 'opacity-0 translate-y-8'
           }`}>
             <Button 
+              onClick={handleReadMore}
               className="bg-transparent border border-black text-black hover:bg-transparent hover:text-black px-4 md:px-8 py-2 md:py-3 text-xs md:text-sm tracking-wide uppercase font-light rounded-none"
             >
               Read More
