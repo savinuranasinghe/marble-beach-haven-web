@@ -224,14 +224,24 @@ const Menu = () => {
 
       {/* Menu Sections */}
       <div className="container mx-auto px-6 py-16">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           
           {/* Appetizers */}
           <section className="mb-16 md:mb-20">
             <h2 className="text-3xl md:text-4xl font-light tracking-wide mb-8 md:mb-12 text-center">
               Small Plates
             </h2>
-            <div className="grid md:grid-cols-1 gap-6">
+            
+            {/* Featured Image */}
+            <div className="mb-12">
+              <img 
+                src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=1200&q=80"
+                alt="Jaffna Crab Cakes"
+                className="w-full h-64 md:h-80 object-cover rounded-lg shadow-lg"
+              />
+            </div>
+            
+            <div className="grid md:grid-cols-1 gap-6 max-w-4xl mx-auto">
               {menuItems.appetizers.map((item, index) => (
                 <MenuItem key={index} item={item} category="appetizers" />
               ))}
@@ -243,7 +253,22 @@ const Menu = () => {
             <h2 className="text-3xl md:text-4xl font-light tracking-wide mb-8 md:mb-12 text-center">
               Main Courses
             </h2>
-            <div className="grid md:grid-cols-1 gap-6">
+            
+            {/* Featured Images Grid */}
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <img 
+                src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80"
+                alt="Negombo Lobster Curry"
+                className="w-full h-64 object-cover rounded-lg shadow-lg"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80"
+                alt="Mannar Crab Curry"
+                className="w-full h-64 object-cover rounded-lg shadow-lg"
+              />
+            </div>
+            
+            <div className="grid md:grid-cols-1 gap-6 max-w-4xl mx-auto">
               {menuItems.mains.map((item, index) => (
                 <MenuItem key={index} item={item} category="mains" />
               ))}
@@ -255,7 +280,17 @@ const Menu = () => {
             <h2 className="text-3xl md:text-4xl font-light tracking-wide mb-8 md:mb-12 text-center">
               Sweet Endings
             </h2>
-            <div className="grid md:grid-cols-1 gap-6">
+            
+            {/* Featured Image */}
+            <div className="mb-12">
+              <img 
+                src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1200&q=80"
+                alt="Watalappan Soufflé"
+                className="w-full h-64 md:h-80 object-cover rounded-lg shadow-lg"
+              />
+            </div>
+            
+            <div className="grid md:grid-cols-1 gap-6 max-w-4xl mx-auto">
               {menuItems.desserts.map((item, index) => (
                 <MenuItem key={index} item={item} category="desserts" />
               ))}
@@ -267,7 +302,17 @@ const Menu = () => {
             <h2 className="text-3xl md:text-4xl font-light tracking-wide mb-8 md:mb-12 text-center">
               Wine Selection
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            
+            {/* Wine Image */}
+            <div className="mb-12">
+              <img 
+                src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80"
+                alt="Wine Selection"
+                className="w-full h-64 md:h-80 object-cover rounded-lg shadow-lg"
+              />
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {wines.map((wine, index) => (
                 <div key={index} className="mb-6">
                   <div className="flex justify-between items-start mb-1">
