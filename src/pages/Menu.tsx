@@ -287,11 +287,14 @@ const Menu = () => {
         </div>
       </div>
 
-      {/* Note Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Footer CTA Section */}
+      <section className="py-20 bg-black text-white">
         <div className="container mx-auto px-6 text-center">
           <div className="max-w-2xl mx-auto">
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <h3 className="text-3xl md:text-4xl font-light tracking-wide mb-6">
+              Experience Our Coastal Menu
+            </h3>
+            <p className="text-gray-400 leading-relaxed mb-6">
               Our menu changes seasonally to showcase the finest local ingredients. 
               Please inform our staff of any dietary requirements or allergies.
             </p>
@@ -300,7 +303,7 @@ const Menu = () => {
             </p>
             <Button 
               onClick={makeReservation}
-              className="bg-black text-white border border-black hover:bg-transparent hover:text-black px-8 py-3 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300"
+              className="bg-black text-white border border-white hover:bg-white hover:text-black px-8 py-3 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300"
             >
               Make a Reservation
             </Button>
