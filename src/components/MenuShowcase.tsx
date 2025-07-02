@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Custom hook for repeatable scroll animations
 const useScrollAnimation = (threshold = 0.3) => {
@@ -30,10 +31,15 @@ const useScrollAnimation = (threshold = 0.3) => {
 };
 
 const MenuShowcase = () => {
+  const navigate = useNavigate();
   const [containerRef, containerVisible] = useScrollAnimation(0.2);
   const [titleRef, titleVisible] = useScrollAnimation(0.3);
   const [textRef, textVisible] = useScrollAnimation(0.3);
   const [buttonRef, buttonVisible] = useScrollAnimation(0.3);
+
+  const handleReadMore = () => {
+    navigate('/menu');
+  };
 
   return (
     <section id="menu" className="min-h-screen flex flex-col md:flex-row md:h-screen m-0 p-0" style={{ marginTop: 0, marginBottom: 0 }}>
