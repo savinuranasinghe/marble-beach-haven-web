@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -19,6 +21,11 @@ const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
+    setIsMenuOpen(false);
+  };
+
+  const navigateToPage = (path: string) => {
+    navigate(path);
     setIsMenuOpen(false);
   };
 
@@ -56,6 +63,14 @@ const Hero = () => {
                 }`}
               >
                 Menu
+              </button>
+              <button 
+                onClick={() => navigateToPage("/rooms")}
+                className={`hover:opacity-70 transition-all duration-300 uppercase ${
+                  isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                }`}
+              >
+                Rooms
               </button>
               <button 
                 onClick={() => scrollToSection("gallery")}
@@ -99,7 +114,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Mobile Menu - COMPLETELY FIXED: All border-t classes removed */}
+        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className={`md:hidden transition-colors duration-300 ${
             isScrolled 
@@ -130,6 +145,14 @@ const Hero = () => {
                 Menu
               </button>
               <button 
+                onClick={() => navigateToPage("/rooms")}
+                className={`block hover:opacity-70 transition-all duration-300 uppercase tracking-wide ${
+                  isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                }`}
+              >
+                Rooms
+              </button>
+              <button 
                 onClick={() => {
                   scrollToSection("gallery");
                   setIsMenuOpen(false);
@@ -152,7 +175,7 @@ const Hero = () => {
                 Contact
               </button>
               
-              {/* Mobile Book Now Button - COMPLETELY FIXED: border-t removed */}
+              {/* Mobile Book Now Button */}
               <div className="pt-4">
                 <Button 
                   onClick={() => {
@@ -161,8 +184,8 @@ const Hero = () => {
                   }}
                   className={`w-full py-3 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300 ${
                     isScrolled 
-                      ? 'bg-white text-black border border-white hover:bg-gray-100 hover:text-black' 
-                      : 'bg-black text-white border border-black hover:bg-gray-800 hover:text-white'
+                      ? 'bg-black text-white border border-white hover:bg-white hover:text-black' 
+                      : 'bg-white text-black border border-black hover:bg-black hover:text-white'
                   }`}
                 >
                   Book Now

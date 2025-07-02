@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -19,6 +21,11 @@ const Navigation = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
+    setIsOpen(false);
+  };
+
+  const navigateToPage = (path: string) => {
+    navigate(path);
     setIsOpen(false);
   };
 
@@ -61,6 +68,14 @@ const Navigation = () => {
               }`}
             >
               Menu
+            </button>
+            <button 
+              onClick={() => navigateToPage("/rooms")} 
+              className={`hover:opacity-70 transition-all duration-300 uppercase ${
+                isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+              }`}
+            >
+              Rooms
             </button>
             <button 
               onClick={() => scrollToSection("reservations")} 
@@ -110,7 +125,7 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Mobile Menu - FIXED: No border-t, clean styling */}
+        {/* Mobile Menu */}
         {isOpen && (
           <div className={`md:hidden transition-colors duration-300 ${
             isScrolled 
@@ -141,6 +156,14 @@ const Navigation = () => {
                 }`}
               >
                 Menu
+              </button>
+              <button 
+                onClick={() => navigateToPage("/rooms")}
+                className={`block hover:opacity-70 transition-all duration-300 uppercase tracking-wide ${
+                  isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                }`}
+              >
+                Rooms
               </button>
               <button 
                 onClick={() => scrollToSection("reservations")}
