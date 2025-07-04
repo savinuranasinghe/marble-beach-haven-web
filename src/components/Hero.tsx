@@ -201,7 +201,7 @@ const Hero = () => {
         {/* Full-width Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=2000&q=80"
+            src="https://res.cloudinary.com/dkpuabgjl/image/upload/v1751656045/ChatGPT_Image_Jul_4_2025_at_11_40_14_PM_lp59jv.png"
             alt="Marble Beach Restaurant Ocean View"
             className="w-full h-full object-cover object-center"
           />

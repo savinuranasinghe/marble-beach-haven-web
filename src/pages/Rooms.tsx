@@ -54,7 +54,7 @@ const Rooms = () => {
       price: "LKR 35,000",
       description: "Private villa surrounded by tropical gardens with outdoor shower and peaceful courtyard setting.",
       amenities: ["King/Twin Beds", "Garden View", "Outdoor Shower", "Minibar", "WiFi", "AC"],
-      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"
     },
     {
       name: "Beach Cabana",
@@ -170,7 +170,7 @@ const Rooms = () => {
           })}
         </div>
         
-        <Button className="w-full bg-black text-white border border-black hover:bg-transparent hover:text-black py-3 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300">
+        <Button className="w-full bg-black text-white border border-black hover:bg-transparent hover:text-black py-3 text-sm tracking-wide uppercase rounded-none transition-all duration-300">
           Select Room
         </Button>
       </div>
@@ -294,7 +294,7 @@ const Rooms = () => {
                 </Select>
               </div>
               <div className="flex items-end">
-                <Button className="w-full h-12 bg-black text-white border border-black hover:bg-transparent hover:text-black rounded-none text-sm tracking-wide uppercase font-bold transition-all duration-300">
+                <Button className="w-full h-12 bg-black text-white border border-black hover:bg-transparent hover:text-black rounded-none text-sm tracking-wide uppercase transition-all duration-300">
                   Search Rooms
                 </Button>
               </div>
@@ -375,7 +375,7 @@ const Rooms = () => {
                   </p>
                 </div>
                 <div className="text-center">
-                  <Button className="bg-black text-white hover:bg-transparent hover:text-black border border-black px-6 py-2 text-sm tracking-wide uppercase font-bold rounded-none transition-all duration-300">
+                  <Button className="bg-black text-white hover:bg-transparent hover:text-black border border-black px-6 py-2 text-sm tracking-wide uppercase rounded-none transition-all duration-300">
                     Learn More
                   </Button>
                 </div>
