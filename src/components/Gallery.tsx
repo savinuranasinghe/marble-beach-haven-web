@@ -5,27 +5,27 @@ const Gallery = () => {
   
   const images = [
     {
-      src: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dkpuabgjl/image/upload/v1752260367/ChatGPT_Image_Jul_12_2025_at_12_28_46_AM_jdxo4o.png",
       alt: "Ocean View Dining"
     },
     {
-      src: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dkpuabgjl/image/upload/v1752259172/ChatGPT_Image_Jul_12_2025_at_12_08_01_AM_vjv4en.png",
       alt: "Fresh Daily Catch"
     },
     {
-      src: "https://images.unsplash.com/photo-1518877593221-1f28583780b4?auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dkpuabgjl/image/upload/v1752253413/ChatGPT_Image_Jul_11_2025_at_10_32_53_PM_ckjvri.png",
       alt: "Sunset Dining"
     },
     {
-      src: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dkpuabgjl/image/upload/v1752263129/ChatGPT_Image_Jul_12_2025_at_01_13_13_AM_ns4cdb.png",
       alt: "Culinary Artistry"
     },
     {
-      src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dkpuabgjl/image/upload/v1752267401/ChatGPT_Image_Jul_12_2025_at_02_26_07_AM_annt4p.png",
       alt: "Beachfront Ambiance"
     },
     {
-      src: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dkpuabgjl/image/upload/v1752263287/ChatGPT_Image_Jul_12_2025_at_01_17_41_AM_p9s7c5.png",
       alt: "Ocean Waves"
     }
   ];

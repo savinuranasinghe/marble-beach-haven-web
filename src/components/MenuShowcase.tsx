@@ -87,7 +87,7 @@ const MenuShowcase = () => {
       {/* Image - Full width on mobile, half width on desktop */}
       <div className="w-full md:w-1/2 h-64 md:h-full relative order-1 md:order-2">
         <img 
-          src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1000&q=80"
+          src="https://res.cloudinary.com/dkpuabgjl/image/upload/v1752240261/ChatGPT_Image_Jul_11_2025_at_06_53_59_PM_fu3ut9.png"
           alt="Signature Crab Curry"
           className="w-full h-full object-cover"
         />
